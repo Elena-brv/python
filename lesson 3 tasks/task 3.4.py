@@ -6,9 +6,7 @@ attempts = 4 #количество попыток
 
 while attempts >= 1:
     number = int(input('Enter the integer from 0 till 50: '))
-    if number < 0 or number > 50:
-        print('You enter the number out of the range. Try again') 
-    elif number == a:
+    if number == a:
         print('You win!')
         break
     elif number > a: 
