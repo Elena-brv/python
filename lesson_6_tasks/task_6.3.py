@@ -1,4 +1,4 @@
-text = str(input('Input some words: '))
+text = input('Input some words: ')
 words = text.split()
 print(words)
 
