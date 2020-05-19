@@ -58,13 +58,13 @@ def clear_list():
     tl.quit()
 
 button_clear = Button(tl,
-                    text = 'Clear the list',
-                    bg = 'blue',
-                    fg = 'white',
-                    width = 20,
-                    height = 3,
-                    command = clear_list
-                    )
+                        text = 'Clear the list',
+                        bg = 'blue',
+                        fg = 'white',
+                        width = 20,
+                        height = 3,
+                        command = clear_list
+                        )
 
 label.pack()
 entry_name.pack()
