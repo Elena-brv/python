@@ -1,4 +1,4 @@
-from tkinter import Tk, Toplevel, Button, Label, Entry
+from tkinter import Tk, Toplevel, Button, Label, Entry, Listbox, END, SINGLE
 import time
 
 root = Tk()
@@ -38,8 +38,11 @@ button_save = Button(root,
 def open_contacts():
     tl.deiconify()
     file_cont = open('My contacts.txt', 'r')
-    label_tl = Label(tl, text= str(file_cont.read()))
-    label_tl.pack()
+    listbox = Listbox(tl, width=600, selectmode=SINGLE)
+    list_of_contacts = list (file_cont.readlines())
+    for contact in list_of_contacts:
+        listbox.insert(END, contact)
+    listbox.pack()
     file_cont.close()
 
 
