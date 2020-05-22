@@ -6,8 +6,7 @@ except ValueError:
     print('You chose nonexistent action. It will be open list of contacts')
     action = 2
 
-if action == 1:
-    file_json = open('contact.json', 'a')
+def get_contact():
     name = input('Enter name: ')
     surname = input('Enter surname: ')
     try: 
@@ -17,9 +16,23 @@ if action == 1:
         phone = 123
     email = input('Enter email: ')
     t = time.strftime('%X', time.localtime())
-    contact = {'time': t, 'name': name, 'surmane': surname, 'phone': phone, 'email': email}
-    json.dump(contact, file_json)
-    file_json.close() 
+    new_contact = {'time': t, 'name': name, 'surmane': surname, 'phone': phone, 'email': email}
+    return new_contact
+
+def write_json(new_contact):
+    try:
+        all_contacts = json.load(open('contact.json'))
+    except OSError:
+        all_contacts = []
+    
+    file_json = open('contact.json', 'w')
+    all_contacts.append(new_contact)
+    json.dump(all_contacts, file_json)
+    file_json.close()
+
+
+while action == 1:
+    write_json(get_contact())
     try: 
         action = int (input('Choose action: 1 for enter a new contact, 2 for open the list of contacts, 3 for quit: '))
     except ValueError:
