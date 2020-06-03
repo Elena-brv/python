@@ -31,7 +31,6 @@ def save_file():
     root.withdraw()
  
  
- 
 button_save = Button (root,
                     text='Save file',
                     bg='green',
@@ -40,8 +39,6 @@ button_save = Button (root,
                     height=2,
                     command = save_file
                     )
-
-
 
 label.pack()
 entry_link.pack()
