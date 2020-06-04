@@ -20,11 +20,11 @@ def save_file():
         file_name = file_link.split("/")[-1]
 
     try:
-        with open(file_path + '\\' + file_name, 'wb') as file:
+        with open(os.path.join(file_path, file_name), 'wb') as file:
             file.write(responce.content)
     except FileNotFoundError:
         file_path = os.getcwd()
-        with open(file_path + '\\' + file_name, 'wb') as file:
+        with open(os.path.join(file_path, file_name), 'wb') as file:
             file.write(responce.content)
 
     root.withdraw()
@@ -45,4 +45,3 @@ entry_path.pack()
 entry_name.pack()
 button_save.pack()
 root.mainloop()
-
